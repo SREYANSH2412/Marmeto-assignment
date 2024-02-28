@@ -76,9 +76,11 @@ body {
 #Men{
     display: flex;
     /* flex-wrap: wrap; */
+
 }
 .box{
     margin-right: 12px;
+    
 }
 /* Badges content */
 .badges{
