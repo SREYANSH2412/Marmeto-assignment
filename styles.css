@@ -54,7 +54,7 @@ body {
 
 .tab-logo img {
     margin-right: 10px;       /* Space between logo and text */
-    width: 90%;   /* Logo takes up maximum 30% of tab's width */
+    width: 5%;   /* Logo takes up maximum 30% of tab's width */
     height: auto;     /* Automatically maintains aspect ratio */
 } 
 
