@@ -45,6 +45,15 @@ body {
     color: #FFFFFF;
     border-radius: 2px;
 }
+
+.tab-logo {
+    display: none;  /* Hide the logo initially */
+}
+
+.tab.active .tab-logo { 
+    display: block; /* Show when tab is active */
+}
+
   
 .tab:hover {
     background-color: #AAA;
