@@ -1,13 +1,35 @@
 const tabs = document.querySelectorAll('[data-tab-target]');
 const tabContents = document.querySelectorAll('[data-tab-content]');
-
+const WomenBox = document.getElementById("Women");
+const MenBox = document.getElementById("Men");
+const KidsBox = document.getElementById("Kids");
+console.log(WomenBox + " " + MenBox + " " + KidsBox);
 tabs.forEach(tab => {
   tab.addEventListener('click', () => {
     const target = document.querySelector(tab.dataset.tabTarget);
-
+    // console.log(target);
     // Logic for tab content visibility
+    if (target == WomenBox) {
+      MenBox.style.display = "none";
+      KidsBox.style.display = "none";
+      WomenBox.style.removeProperty('display');
+    } else if (target == MenBox) {
+      WomenBox.style.display = 'none';
+      KidsBox.style.display = 'none';
+      MenBox.style.removeProperty('display');   
+      
+    } else if (target == KidsBox) {   
+      WomenBox.style.display = 'none';    
+      MenBox.style.display = 'none';  
+      KidsBox.style.removeProperty('display');      
+    }
+
+    // Logic to activate the tab content
     tabContents.forEach(tabContent => {
+   
       tabContent.classList.remove('active');  
+      
+
     });
     target.classList.add('active'); 
 
@@ -22,42 +44,13 @@ tabs.forEach(tab => {
 });
 
 
-// fetch('https://cdn.shopify.com/s/files/1/0564/3685/0790/files/multiProduct.json')
-// .then(response =>{
-//   if(!response.ok){
-//     throw new Error("Network reponse was not ok");
-//   }
-//   return response.json();
+// Calculation of discount percentage 
+function calculationPercentage(price, compare_at_price){
+  let percentage = Math.round(((compare_at_price - price) / compare_at_price) * 100);
+  return percentage;
+}
 
-// })
-// .then(data=>{
-//   const products = data.map(itemms=>itemms.image)
-//   console.log(products)
-// })
-// .catch(error=>{
-//   console.error('There has been a problem with your fetch operation:', error);
-// });
-
-// fetch('https://cdn.shopify.com/s/files/1/0564/3685/0790/files/multiProduct.json')
-//   .then(response => response.json())
-//   .then(data => {
-//     // Extract images from the JSON data
-//     const images = data.category_products.map(product => product.image[0].src);
-
-//     // Create HTML elements for each image
-//     const imageContainer = document.getElementById('imageContainer');
-//     images.forEach(imageSrc => {
-//       const imgElement = document.createElement('img');
-//       imgElement.src = imageSrc;
-//       imgElement.alt = 'Product Image';
-//       imgElement.style.width = '200px'; // Adjust the width as needed
-//       imageContainer.appendChild(imgElement);
-//     });
-//   })
-//   .catch(error => {
-//     console.error('Error fetching data:', error);
-//   });
-
+// start fetching the api data 
 const apiEndpoint = "https://cdn.shopify.com/s/files/1/0564/3685/0790/files/multiProduct.json";
 
 async function fetchProducts() {
@@ -76,6 +69,7 @@ async function fetchProducts() {
   }
 }
 
+
 function displayProducts(categoriesData) {
   const menSection = document.getElementById('Men');
   const womenSection = document.getElementById('Women');
@@ -86,12 +80,13 @@ function displayProducts(categoriesData) {
     console.log(sectionElement);
     if (sectionElement) { // Check if the section exists
       // console.log("Code is here ")
-      // console.log(categoriesData.category_products[category.id]);
+ 
       category.category_products.forEach(product => {
+        // Creatimg the card here 
         const productDiv = document.createElement('div');
         productDiv.classList.add('box');
-        console.log(productDiv);
-
+        // console.log(productDiv);
+        // Adiing the image secion
         const productImg = document.createElement('img');
         productImg.src = product.image;
         productImg.alt = product.title;
@@ -102,21 +97,28 @@ function displayProducts(categoriesData) {
         cardContent.classList.add('card-content');
         cardContent.innerHTML = `<h3>${product.title}</h3><li>${product.vendor}</li>`;
 
-        // ... Add other elements for price, badge, button (similarly)
+        
         const priceDiv = document.createElement('div');
         priceDiv.classList.add('price');
 
-        priceDiv.innerHTML = `<h3>${product.price}</h3>`;
+        priceDiv.innerHTML = `<h3>Rs ${product.price}</h3>`;
         const del  = document.createElement('del');
         del.innerHTML = `<h3>${product.compare_at_price}</h3>`;
         priceDiv.appendChild(del)
+        const percentage = calculationPercentage(product.price, product.compare_at_price);
+        const paragraphTag = document.createElement('p');
+        paragraphTag.innerHTML= `${percentage}% Off`;
+        priceDiv.appendChild(paragraphTag);
 
-
+        
         productDiv.appendChild(productImg);
         productDiv.appendChild(cardContent);
         productDiv.appendChild(priceDiv);
         // ... append other elements
-
+        const createButton = document.createElement('button');
+        createButton.classList.add('btn');
+        createButton.innerHTML = "Add to Cart";
+        productDiv.appendChild(createButton);
         sectionElement.appendChild(productDiv);
     });
     } else {
@@ -128,43 +130,24 @@ function displayProducts(categoriesData) {
 fetchProducts(); 
 
 
-// function displayProducts(categoryData, sectionElement) {
-//     categoryData.category_products.forEach(product => {
-//         const productDiv = document.createElement('div');
-//         productDiv.classList.add('box');
 
-//         const productImg = document.createElement('img');
-//         productImg.src = product.image;
-//         productImg.alt = product.title;
-//         productImg.height = "300"; 
-//         productImg.width = "240"; 
-
-//         const cardContent = document.createElement('div');
-//         cardContent.classList.add('card-content');
-//         cardContent.innerHTML = `<h3>${product.title}</h3><li>${product.vendor}</li>`;
-
-//         // ... Add other elements for price, badge, button (similarly)
-
-//         productDiv.appendChild(productImg);
-//         productDiv.appendChild(cardContent);
-//         // ... append other elements
-
-//         sectionElement.appendChild(productDiv);
-//     });
-// }
-
-// categoriesData.categories.forEach(category => {
-//     switch (category.category_name) {
-//         case 'Men':
-//             displayProducts(category, menSection);
-//             break;
-//         case 'Women':
-//             displayProducts(category, womenSection);
-//             break;
-//         case 'Kids':
-//             displayProducts(category, kidsSection);
-//             break;
-//         default:
-//             console.log(`Unknown category: ${category.category_name}`);
-//     }
-// });
+let isMenPresent = MenBox.classList.contains("active");
+let isWomenPresent = WomenBox.classList.contains("active");
+let isKidsPresent = KidsBox.classList.contains("active");
+if(isMenPresent){
+     WomenBox.style.display = "none";
+     KidsBox.style.display= "none";
+    
+    
+}
+if(isWomenPresent){
+  console.log("Akhil")
+     MenBox.style.display = "none";
+     KidsBox.style.display= "none"; 
+     WomenBox.style.display = "flex";
+ }
+ if(isKidsPresent){
+      MenBox.style.display = "none";
+      WomenBox.style.display= "none";
+      KidsBox.style.display= "flex";  
+ }

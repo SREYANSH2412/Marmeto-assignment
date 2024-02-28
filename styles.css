@@ -29,8 +29,8 @@ body {
 }
 
 .tabs-container {
-    padding-left: 300px; 
-    padding-right: 300px; 
+    padding-left: 600px; 
+    padding-right: 600px; 
 }
   
 .tab {
@@ -73,9 +73,10 @@ body {
 
 }
 
-#Men{
+#Men,#Women,#Kids{
     display: flex;
     /* flex-wrap: wrap; */
+    margin-left: 6rem;
 
 }
 .box{
@@ -85,16 +86,16 @@ body {
 /* Badges content */
 .badges{
     max-width: 1200px;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
    
    
-    margin-block-start: 20px;
+    margin-block-start: 40px;
 }
 
 .box img{
     border-radius: 10px;
 }
-#Men .card-content{
+#Men .card-content , #Women .card-content , #Kids .card-content{
     display: flex;
     align-items: center;
     font-family: 'Inter', sans-serif !important;
@@ -103,7 +104,20 @@ body {
 .card-content li{
     margin-inline-start: 20px;
 }
-#Men .price{
+.card-content h3{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif !important;
+    width: 2em;  overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif !important;
+    width: 6em;
+}
+#Men .price , #Women .price , #Kids .price{
     display: flex;
     align-items: center;
    margin-top: -23px;
@@ -115,7 +129,13 @@ body {
 }
 .price h3{
     margin-right: 13px;
-    font-size: 1rem;
+    font-size: 1rem;  
+  
+    
+}
+.price span{
+    margin-right: 10px;
+    color: #8F8F8F; 
    
    
 }
@@ -140,4 +160,14 @@ body {
     font-family: 'Inter', sans-serif !important;
     align-items: center;
     justify-content: center;
+}
+
+/* Media Query */
+
+@media (max-width:767px){
+    #men{
+        display: flex;
+        flex-direction: column;
+    }
+   
 }
