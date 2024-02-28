@@ -37,8 +37,10 @@ body {
     cursor: pointer;
     padding: 20px;
     flex: 1;
-    text-align: center;
+    display: flex;           /* Enable Flexbox */
+    justify-content: center; /* Horizontally center the content */
 }
+
   
 .tab.active {
     background-color: #000000;
