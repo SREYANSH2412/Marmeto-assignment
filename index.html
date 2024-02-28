@@ -1,54 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js" defer></script>
-    <link rel="stylesheet" href="styles.css">
-    <title>Task 1 | Category Tabs</title>
-</head>
-<body>
-    <br><br>
-    <div class="choice">
-        <h2>SELECT YOUR CHOICE</h2>
-    </div>
-    <br>
-    <div class="tabs-container">
-      <ul class="tabs">
-        <li data-tab-target="#Men" class="active tab">
-          <span class="tab-logo">
-            <img src="images/Men.png" alt="Men Logo"> 
-          </span>
-          <b>Men</b>
-        </li>
-        <li data-tab-target="#Women" class="tab">
-          <span class="tab-logo">
-            <img src="images/Women.png" alt="Women Logo"> 
-          </span>
-          <b>Women</b>
-        </li>
-        <li data-tab-target="#Kids" class="tab">
-          <span class="tab-logo">
-            <img src="images/Kids.png" alt="Kids Logo"> 
-          </span>
-          <b>Kids</b>
-        </li>
-      </ul>
-    </div>
-    
-      <div class="tab-content">
-        <div id="Men" data-tab-content class="active">
-          <h1>Home</h1>
-          <p>This is the home</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="script.js" defer></script>
+        <link rel="stylesheet" href="styles.css">
+        <title>Task 1 | Category Tabs</title>
+    </head>
+    <body>
+        <br>
+        <br>
+        <div class="choice">
+            <h2>SELECT YOUR CHOICE</h2>
         </div>
-        <div id="Women" data-tab-content>
-          <h1>Pricing</h1>
-          <p>Some information on pricing</p>
+        <br>
+        <div class="tabs-container">
+            <ul class="tabs">
+                <li data-tab-target="#Men" class="active tab">
+                    <span class="tab-logo">
+                        <img src="images/Men.png" alt="Men Logo">
+                    </span>
+                    <b>Men</b>
+                </li>
+                <li data-tab-target="#Women" class="tab">
+                    <span class="tab-logo">
+                        <img src="images/Women.png" alt="Women Logo">
+                    </span>
+                    <b>Women</b>
+                </li>
+                <li data-tab-target="#Kids" class="tab">
+                    <span class="tab-logo">
+                        <img src="images/Kids.png" alt="Kids Logo">
+                    </span>
+                    <b>Kids</b>
+                </li>
+            </ul>
         </div>
-        <div id="Kids" data-tab-content>
-          <h1>About</h1>
-          <p>Let me tell you about me</p>
+        <div class="tab-content badges">
+            <div id="Men" data-tab-content class="active">
+                <div class="box">
+                    <img src="https://plus.unsplash.com/premium_photo-1682090786689-741d60a11384" alt="Mens-wedding"  height="300px" width="240px">
+                    <div class="card-content">
+                        <h3>Mens Kurta</h3>
+                        <li>Manyvar</li>
+                    </div>
+                    <div class="price">
+                        <h3>Rs 1199.00</h3>
+                        <del>1299.00</del>
+                        <p>50% Off</p>
+                    </div>
+                    <button class="btn">Add to cart</button>
+                </div>
+                <div class="box">
+                    <img src="https://plus.unsplash.com/premium_photo-1682090786689-741d60a11384" alt="Mens-wedding"  height="300px" width="240px">
+                    <div class="card-content">
+                        <h3>Mens Kurta</h3>
+                        <li>Manyvar</li>
+                    </div>
+                    <div class="price">
+                        <h3>Rs 1199.00</h3>
+                        <del>1299.00</del>
+                        <p>50% Off</p>
+                    </div>
+                    <button class="btn">Add to cart</button>
+                </div>
+                <div class="box">
+                    <img src="https://plus.unsplash.com/premium_photo-1682090786689-741d60a11384" alt="Mens-wedding"  height="300px" width="240px">
+                    <div class="card-content">
+                        <h3>Mens Kurta</h3>
+                        <li>Manyvar</li>
+                    </div>
+                    <div class="price">
+                        <h3>Rs 1199.00</h3>
+                        <del>1299.00</del>
+                        <p>50% Off</p>
+                    </div>
+                    <button class="btn">Add to cart</button>
+                </div>
+                <div class="box">
+                    <img src="https://plus.unsplash.com/premium_photo-1682090786689-741d60a11384" alt="Mens-wedding"  height="300px" width="240px">
+                    <div class="card-content">
+                        <h3>Mens Kurta</h3>
+                        <li>Manyvar</li>
+                    </div>
+                    <div class="price">
+                        <h3>Rs 1199.00</h3>
+                        <del>1299.00</del>
+                        <p>50% Off</p>
+                    </div>
+                    <button class="btn">Add to cart</button>
+                </div>
+              
+            </div>
+                <div id="Women" data-tab-content>
+                    <div class="box"></div>
+                </div>
+                <div id="Kids" data-tab-content>
+                    <div class="box"></div>
+                </div>
         </div>
-      </div>
-</body>
-</html>
+        </body>
+    </html>
