@@ -1,0 +1,52 @@
+@import url('https://fonts.google.com/specimen/Inter');
+
+.choice{
+    text-align: center;
+}
+
+[data-tab-content] {
+    display: none;
+}
+  
+.active[data-tab-content] {
+    display: block;
+}
+  
+body {
+    padding: 0;
+    margin: 0;
+}
+  
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #F2F2F2;
+}
+
+.tabs-container {
+    padding-left: 200px; 
+    padding-right: 200px; 
+}
+  
+.tab {
+    cursor: pointer;
+    padding: 10px;
+    flex: 1;
+    text-align: center;
+}
+  
+.tab.active {
+    background-color: #CCC;
+}
+  
+.tab:hover {
+    background-color: #AAA;
+}
+  
+.tab-content {
+    margin-left: 20px;
+    margin-right: 20px;
+}
