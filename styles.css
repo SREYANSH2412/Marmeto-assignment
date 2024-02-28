@@ -52,6 +52,12 @@ body {
     display: none;  /* Hide the logo initially */
 }
 
+.tab-logo img {
+    margin-right: 10px;       /* Space between logo and text */
+    width: 90%;   /* Logo takes up maximum 30% of tab's width */
+    height: auto;     /* Automatically maintains aspect ratio */
+} 
+
 .tab.active .tab-logo { 
     display: block; /* Show when tab is active */
 }
