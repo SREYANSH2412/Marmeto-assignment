@@ -1,6 +1,7 @@
 @import url('https://fonts.google.com/specimen/Inter');
 
 .choice{
+    width: 100%;
     text-align: center;
 }
 
@@ -181,10 +182,13 @@ body {
   #Men, #Women, #Kids {
     flex-wrap: wrap; 
     margin-left: 0; /* Remove left margin for better space usage */
+    
   }
 
   .box {
-    margin: auto; /* Reduce box margins */
+    /* margin: auto; Reduce box margins */
+    margin-inline: auto;
+    margin-block-end: 20px;
   }
 
   /* Consider decreasing font sizes if text gets cramped */
@@ -192,10 +196,30 @@ body {
 
 /* Media Query for Tablet Screens (768px to 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {   
+    .conatiner{
+        max-width: 700px;
+    }
   .tabs-container {
     padding-left: 20px; 
     padding-right: 20px; 
   }
+  .tabs {
+    flex-wrap: wrap; /* Allow tabs to wrap */
+    justify-content: center; /* Center tabs on smaller screens */
+  }
+
+  #Men, #Women, #Kids {
+    flex-wrap: wrap; 
+    margin-left: 0; /* Remove left margin for better space usage */
+    
+  }
+
+  .box {
+    /* margin: auto; Reduce box margins */
+    margin-inline: auto;
+    margin-block-end: 20px;
+  }
+ 
   
 
   /* Adjust layout as needed for tablets, consider:
@@ -206,18 +230,29 @@ body {
 
 /* Media Query for Desktop Screens (above 1025px) */
 @media (min-width: 1025px) { 
+    .container{
+        max-width: 1300px;
+        /* border: 1px solid red; */
+       margin-inline: auto;
+    }
+ .choice{
+    display: inline-block;
+  
+ }
   .tabs-container {
+    /* border: 1px solid green; */
+     max-width: 1000px;
     padding-left: 600px; 
     padding-right: 600px; 
+    margin-inline: auto;
   }
-
-  #Men, #Women, #Kids {
-    margin-left: 6rem; /* Restore left margin */
-  }
-
-
-  /* Optimize product card presentation for larger screens:
-     - Allow more product cards per row
-     - Increase font sizes if appropriate
-  */
+.choice{
+    min-width: 1300px;
 }
+  .tabs {
+   
+   width: 100%;
+    justify-content: center; /* Center tabs on smaller screens */
+  }
+}
+
