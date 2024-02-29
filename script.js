@@ -141,7 +141,7 @@ if(isMenPresent){
     
 }
 if(isWomenPresent){
-  console.log("Akhil")
+  console.log("Sreyansh")
      MenBox.style.display = "none";
      KidsBox.style.display= "none"; 
      WomenBox.style.display = "flex";
