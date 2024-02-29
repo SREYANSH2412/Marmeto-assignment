@@ -164,10 +164,60 @@ body {
 
 /* Media Query */
 
-@media (max-width:767px){
-    #men{
-        display: flex;
-        flex-direction: column;
-    }
-   
+/* ... your existing styles ... */
+
+/* Media Query for Mobile Screens (up to 767px) */
+@media (max-width: 767px) {
+  .tabs-container {
+    padding-left: 10px; 
+    padding-right: 10px; 
+  }
+
+  .tabs {
+    flex-wrap: wrap; /* Allow tabs to wrap */
+    justify-content: center; /* Center tabs on smaller screens */
+  }
+
+  #Men, #Women, #Kids {
+    flex-wrap: wrap; 
+    margin-left: 0; /* Remove left margin for better space usage */
+  }
+
+  .box {
+    margin: auto; /* Reduce box margins */
+  }
+
+  /* Consider decreasing font sizes if text gets cramped */
+}
+
+/* Media Query for Tablet Screens (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {   
+  .tabs-container {
+    padding-left: 20px; 
+    padding-right: 20px; 
+  }
+  
+
+  /* Adjust layout as needed for tablets, consider:
+     - Allowing 2 or more product cards per row
+     - Slightly increasing font sizes compared to mobile
+  */
+}
+
+/* Media Query for Desktop Screens (above 1025px) */
+@media (min-width: 1025px) { 
+  .tabs-container {
+    padding-left: 600px; 
+    padding-right: 600px; 
+  }
+
+  #Men, #Women, #Kids {
+    margin-left: 6rem; /* Restore left margin */
+  }
+
+
+  /* Optimize product card presentation for larger screens:
+     - Allow more product cards per row
+     - Increase font sizes if appropriate
+  */
 }
